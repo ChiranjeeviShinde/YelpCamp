@@ -16,31 +16,42 @@
   <body>
     <h1 class="heading">Search and View Our Campgrounds</h1>
     <div class="search-bar">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search for a campground"
-        aria-label="Search"
-        aria-describedby="basic-addon1"
-      />
-    </div>
+      <label for="search">Search</label>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search for a campground"
+          aria-label="Search"
+          aria-describedby="basic-addon1"
+          id="search"
+        />
+      </div>
     </div>
     <ul>
       <% for(let camp of camps) { %>
-      <div class="card mb-3" style="max-width: 540px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img
-              src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D"
-              class="img-fluid rounded-start"
-              alt="..."
-            />
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title"><%= camp.name %></h5>
-              <p class="card-text"><%=camp.description%></p>
+      <div class="cards">
+        <div class="card mb-3" style="max-width: 700px">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img
+                src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D"
+                class="img-fluid rounded-start card-img"
+                alt="..."
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title"><%= camp.name %></h5>
+                <p class="card-text"><%=camp.description%></p>
+                <p class="text-muted"><%= camp.location %></p>
+                <a
+                  class="btn btn-primary"
+                  href="/camps/<%= camp._id %>"
+                  role="button"
+                  >View <%= camp.name %></a
+                >
+              </div>
             </div>
           </div>
         </div>
