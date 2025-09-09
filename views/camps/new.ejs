@@ -10,13 +10,13 @@
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
-    />
+    /> 
   </head>
 
   <body>
     <h1 class="heading">New Campground</h1>
     <form action="/camps" method="POST" class="new-camp">
-      <!-- <label for="name">Title</label>
+      <label for="name">Title</label>
       <div class="input-group mb-3">
         <input
           type="text"
@@ -24,6 +24,7 @@
           aria-label="Title"
           aria-describedby="inputGroup-sizing-default"
           id="name"
+          name="name"
         />
       </div>
       <label for="loc">Location</label>
@@ -33,32 +34,29 @@
           class="form-control"
           aria-label="Location"
           aria-describedby="inputGroup-sizing-default"
-          id="loc"
+          id="location"
+          name="location"
         />
       </div>
       <label for="price">Price</label>
       <div class="input-group mb-3">
         <span class="input-group-text">$</span>
-        <input type="text" class="form-control" aria-label="Price" id="price" />
+        <input type="text" class="form-control" aria-label="Price" id="price" name="price"/>
       </div>
       <label for="des">Description</label>
       <div class="input-group">
         <textarea
           class="form-control"
           aria-label="Description"
-          id="des"
+          id="description"
+          name="description"
         ></textarea>
-      </div> -->
-      <!-- <div class="mb-3">
+      </div>
+      <div class="mb-3">
         <label for="formFile" class="form-label">Select the Image</label>
-        <input class="form-control" type="file" id="formFile" />
-      </div> -->
-      <!-- <button type="submit" class="btn btn-success submit-btn">Add Campground</button> -->
-       <input type="text" name="name" placeholder="Camp Name" />
-       <input type="text" name="price" placeholder="Price" />
-      <input type="text" name="loc" placeholder="Location" />
-      <input type="text" name="des" placeholder="Description" />
-      <button>Submit</button>
+        <input class="form-control" type="file" id="formFile" name="image"/>
+      </div>
+      <button type="submit" class="btn btn-success submit-btn">Add Campground</button>
     </form>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
