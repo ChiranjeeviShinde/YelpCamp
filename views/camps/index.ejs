@@ -14,6 +14,35 @@
   </head>
 
   <body>
+        <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand">YelpCamp</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/camps/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/camps">Campgrounds</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/camps/new">New Campground</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <h1 class="heading">Search and View Our Campgrounds</h1>
     <div class="search-bar">
       <label for="search">Search</label>
@@ -28,10 +57,10 @@
         />
       </div>
     </div>
+    <div class="cards">
     <ul>
       <% for(let camp of camps) { %>
-      <div class="cards">
-        <div class="card mb-3" style="max-width: 700px">
+        <div class="card mb-3">
           <div class="row g-0">
             <div class="col-md-4">
               <img
@@ -55,10 +84,9 @@
             </div>
           </div>
         </div>
-      </div>
       <% }%>
     </ul>
-    <a class="btn btn-dark new" href="/camps/new" role="button">New Camp</a>
+  </div>
     <script src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
