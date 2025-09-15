@@ -47,6 +47,18 @@ app.post('/camps', async (req, res) => {
     res.redirect(`/camps/${newCamp._id}`)
 })
 
+app.get('/camps/:id/edit', async (req, res) => {
+    const { id } = req.params;
+    const camp = await Camp.findById(id);
+    res.render('camps/edit', { camp })
+})
+
+app.put('/camps/:id', async (req, res) => {
+    const { id } = req.params;
+    const camp = await Camp.findByIdAndUpdate(id, req.body, { runValidators: true, new: true });
+    res.redirect(`/camps/${camp._id}`);
+})
+
 app.delete('/camps/:id', async (req, res) => {
     const { id } = req.params;
     const deletedCamp = await Camp.findByIdAndDelete(id);

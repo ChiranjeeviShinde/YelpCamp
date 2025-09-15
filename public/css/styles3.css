@@ -3,8 +3,8 @@
 body {
   height: 100vh;
 }
+
 .card{
-  margin-left: 30%;
   margin-top: 50px;
   font-family: "Nunito Sans", sans-serif;
 }
@@ -26,4 +26,13 @@ body {
   font-size: 18px;
   display: flex;
   gap: 10px;
+}
+
+.wrap {
+  font-family: "Nunito Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit camp</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/styles2.css" />
+  </head>
+
+  <body>
+    <nav
+      class="navbar bg-dark navbar-expand-lg bg-body-tertiary"
+      data-bs-theme="dark"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand">YelpCamp</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="page" href="/camps/home"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/camps">Campgrounds</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/camps/new">New Campground</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <h1 class="heading">Edit Camp</h1>
+    <form
+      action="/camps/<%=camp._id%>?_method=PUT"
+      method="POST"
+      class="new-camp"
+    >
+      <label for="name">Title</label>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Title"
+          aria-describedby="inputGroup-sizing-default"
+          id="name"
+          name="name"
+          value="<%=camp.name%>"
+        />
+      </div>
+      <label for="loc">Location</label>
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Location"
+          aria-describedby="inputGroup-sizing-default"
+          id="location"
+          name="location"
+          value="<%= camp.location %>"
+        />
+      </div>
+      <label for="price">Price</label>
+      <div class="input-group mb-3">
+        <span class="input-group-text">$</span>
+        <input
+          type="text"
+          class="form-control"
+          aria-label="Price"
+          id="price"
+          name="price"
+          value="<%= camp.price %>"
+        />
+      </div>
+      <label for="des">Description</label>
+      <div class="input-group">
+        <textarea
+          class="form-control"
+          aria-label="Description"
+          id="description"
+          name="description"
+        >
+<%= camp.description %></textarea
+        >
+      </div>
+      <div class="mb-3">
+        <label for="formFile" class="form-label">Select the Image</label>
+        <input class="form-control" type="file" id="formFile" name="image" />
+      </div>
+      <div class="buttons">
+        <button type="submit" class="btn btn-success submit-btn">Update</button>
+        <a
+          class="btn btn-primary submit-btn"
+          href="/camps/<%=camp._id%>"
+          role="button"
+          >Cancel</a
+        >
+      </div>
+    </form>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
