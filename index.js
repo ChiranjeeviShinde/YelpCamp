@@ -15,6 +15,11 @@ mongoose
     console.log("MongoDB connection error:", err);
   });
 
+const reviewSchema = new mongoose.Schema({
+    review: String
+})
+
+const Review = mongoose.model("Review", reviewSchema);
 
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
@@ -63,6 +68,14 @@ app.delete('/camps/:id', async (req, res) => {
     const { id } = req.params;
     const deletedCamp = await Camp.findByIdAndDelete(id);
     res.redirect('/camps');
+})
+
+app.post('/camps/:id', async (req, res) => {
+    const { id } = req.params;
+    const review = new Review(req.body);
+    await review.save();
+    const camp = await Camp.findById(id)
+    res.render('camps/show', { camp, review })
 })
 
 app.listen(3000, () => {
