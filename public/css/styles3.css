@@ -36,3 +36,18 @@ body {
   align-items: center;
   gap: 20px;
 }
+
+.side-panel{
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-box, .mb-3{
+  width: 100%;
+}
+
+.card{
+  margin-top: 20px;
+  height: 100%;
+}

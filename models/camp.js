@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 
+const reviewSchema = new mongoose.Schema({
+  review: String,
+}, {_id: true});
+
 const campSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -21,6 +25,7 @@ const campSchema = new mongoose.Schema({
     required: true,
     min: 0,
   },
+  reviews: [reviewSchema],
 });
 
 const Camp = mongoose.model("Camp", campSchema);

@@ -15,12 +15,6 @@ mongoose
     console.log('MongoDB connection error:', err);
   });
 
-const reviewSchema = new mongoose.Schema({
-  review: String,
-});
-
-const Review = mongoose.model('Review', reviewSchema);
-
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -43,14 +37,14 @@ app.get('/camps/new', (req, res) => {
 app.get('/camps/:id', async (req, res) => {
   const { id } = req.params;
   const camp = await Camp.findById(id);
-  const reviews = await Review.find({});
-  console.log('Reviews for camp:', camp._id, reviews);
-  res.render('camps/show', { camp, reviews });
+  res.render('camps/show', { camp });
 });
 
 app.post('/camps', async (req, res) => {
   const newCamp = new Camp(req.body);
+  newCamp.reviews = [];
   await newCamp.save();
+  console.log(newCamp);
   res.redirect(`/camps/${newCamp._id}`);
 });
 
@@ -77,10 +71,10 @@ app.delete('/camps/:id', async (req, res) => {
 
 app.post('/camps/:id', async (req, res) => {
   const { id } = req.params;
-  const review = new Review(req.body);
-  await review.save();
   const camp = await Camp.findById(id);
-  res.render('camps/show', { camp, review });
+  camp.reviews.push(req.body);
+  await camp.save();
+  res.render('camps/show', { camp });
 });
 
 app.listen(3000, () => {

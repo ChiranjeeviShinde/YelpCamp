@@ -8,14 +8,16 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous" />
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/css/styles3.css" />
   </head>
 
   <body>
     <nav
       class="navbar bg-dark navbar-expand-lg bg-body-tertiary"
-      data-bs-theme="dark">
+      data-bs-theme="dark"
+    >
       <div class="container-fluid">
         <a class="navbar-brand">YelpCamp</a>
         <button
@@ -25,7 +27,8 @@
           data-bs-target="#navbarNav"
           aria-controls="navbarNav"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
@@ -54,39 +57,46 @@
                 <img
                   src="https://plus.unsplash.com/premium_photo-1661916911093-b2e5f005938f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D"
                   class="d-block w-100"
-                  alt="..." />
+                  alt="..."
+                />
               </div>
               <div class="carousel-item">
                 <img
                   src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D"
                   class="d-block w-100"
-                  alt="..." />
+                  alt="..."
+                />
               </div>
               <div class="carousel-item">
                 <img
                   src="https://images.unsplash.com/photo-1510312305653-8ed496efae75?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2FtcGluZ3xlbnwwfHwwfHx8MA%3D%3D"
                   class="d-block w-100"
-                  alt="..." />
+                  alt="..."
+                />
               </div>
             </div>
             <button
               class="carousel-control-prev"
               type="button"
               data-bs-target="#carouselExample"
-              data-bs-slide="prev">
+              data-bs-slide="prev"
+            >
               <span
                 class="carousel-control-prev-icon"
-                aria-hidden="true"></span>
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Previous</span>
             </button>
             <button
               class="carousel-control-next"
               type="button"
               data-bs-target="#carouselExample"
-              data-bs-slide="next">
+              data-bs-slide="next"
+            >
               <span
                 class="carousel-control-next-icon"
-                aria-hidden="true"></span>
+                aria-hidden="true"
+              ></span>
               <span class="visually-hidden">Next</span>
             </button>
           </div>
@@ -112,7 +122,7 @@
           </form>
         </div>
       </div>
-      <div class="col-md-4">
+      <div class="col-md-4 side-panel">
         <form action="/camps/<%= camp._id %>" method="POST">
           <div class="input-group review-box">
             <div class="mb-3">
@@ -121,13 +131,23 @@
                 class="form-control"
                 aria-label="Review"
                 id="review"
-                name="review"></textarea>
+                name="review"
+              ></textarea>
             </div>
           </div>
           <button class="btn btn-success" type="submit">Submit</button>
         </form>
+        <% for(let rev of camp.reviews){ %>
+        <div class="card">
+          <div class="card-body">
+            <p><%=rev.review%></p>
+            <form action="/camps/<%=camp._id%>?_method=DELETE" method="POST">
+              <button class="btn btn-outline-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+        <% } %>
       </div>
-     <%= reviews.review %>
     </div>
     <script src="/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
