@@ -141,7 +141,7 @@
         <div class="card">
           <div class="card-body">
             <p><%=rev.review%></p>
-            <form action="/camps/<%=camp._id%>?_method=DELETE" method="POST">
+            <form action="/camps/<%= camp._id %>/review/<%=rev._id%>?_method=DELETE" method="POST">
               <button class="btn btn-outline-danger">Delete</button>
             </form>
           </div>
